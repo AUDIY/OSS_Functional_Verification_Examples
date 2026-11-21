@@ -1,0 +1,16 @@
+[gold]
+read -sv shift_register_delay16_reg_synth.v
+prep -top shift_register_delay16
+
+[gate]
+read -sv shift_register_delay16_mem_synth.v
+prep -top shift_register_delay16
+
+[collect *]
+join indata
+join outdata
+
+[strategy sby]
+use sby
+engine smtbmc boolector
+depth 20

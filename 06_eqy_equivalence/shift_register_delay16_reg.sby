@@ -1,0 +1,12 @@
+[options]
+mode prove
+
+[engines]
+abc pdr
+
+[script]
+read -formal shift_register_delay16_reg.v
+prep -top shift_register_delay16
+
+[files]
+shift_register_delay16_reg.v
