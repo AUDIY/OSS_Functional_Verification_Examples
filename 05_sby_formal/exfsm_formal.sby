@@ -1,0 +1,19 @@
+[tasks]
+all: task_bmc task_umc
+bmccheck: task_bmc
+umccheck: task_umc
+
+[options]
+task_bmc: mode bmc
+task_umc: mode prove
+
+[engines]
+task_bmc: smtbmc z3
+task_umc: abc pdr
+
+[script]
+read -formal exfsm_formal.v
+prep -top exfsm_formal
+
+[files]
+exfsm_formal.v
